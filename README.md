@@ -9,3 +9,8 @@ I'm looking to bring life back to these old, but still functional, NXT bricks!
 ## The plan
 - Figure out how to program a NXT brick using the Not Exactly C language (NXC)
 - make some kind of demo...?
+
+## dont forget how to docker
+docker image build .
+docker run -itd --rm --name dockertest <imageid>
+docker exec -it dockertest /bin/sh
