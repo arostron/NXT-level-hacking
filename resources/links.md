@@ -11,3 +11,7 @@ http://www.eggwall.com/2011/07/setting-up-lego-programming-environment.html
 http://bricxcc.sourceforge.net/nbc/beta/index.html
 http://bricxcc.sourceforge.net/nbc/welcome.html
 
+
+## usb settup 
+http://www.mediafire.com/file/bp27pjpfq74o3ob/setupNxtUSB.sh/file
+
