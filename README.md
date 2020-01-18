@@ -11,6 +11,6 @@ I'm looking to bring life back to these old, but still functional, NXT bricks!
 - make some kind of demo...?
 
 ## dont forget how to docker
-docker image build .
-docker run -itd --rm --name dockertest <imageid>
-docker exec -it dockertest /bin/sh
+docker image build -t nxcdev .
+docker run -itd --rm --name devenv nxcdev 
+docker exec -it devenv /bin/sh
