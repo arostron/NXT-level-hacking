@@ -15,32 +15,32 @@
 # One location to change the group, if you would like
 LEGO_GROUP=legonxt
 
-# Try to become root on a harmless command
-echo "Trying to become root"
-if (  ls / >> /dev/null ); then
-    echo Could become root successfully
-else
-    echo ERROR: Could NOT become root successfully
-    exit 0;
-fi
-
-
-# Create the right group
-if (  addgroup ${LEGO_GROUP} ); then
-    echo Group ${LEGO_GROUP} created;
-else
-    echo ERROR: Group ${LEGO_GROUP} could NOT be created;
-    exit 0;
-fi
-
-
-# Add your username to the group
-if (  adduser ${USER} ${LEGO_GROUP} ); then
-    echo User ${USER} added to group ${LEGO_GROUP}
-else
-    echo ERROR: User ${USER} could NOT be added to group ${LEGO_GROUP}
-    exit 0;
-fi
+#ALEX## Try to become root on a harmless command
+#ALEX#echo "Trying to become root"
+#ALEX#if (  ls / >> /dev/null ); then
+#ALEX#    echo Could become root successfully
+#ALEX#else
+#ALEX#    echo ERROR: Could NOT become root successfully
+#ALEX#    exit 0;
+#ALEX#fi
+#ALEX#
+#ALEX#
+#ALEX## Create the right group
+#ALEX#if (  addgroup ${LEGO_GROUP} ); then
+#ALEX#    echo Group ${LEGO_GROUP} created;
+#ALEX#else
+#ALEX#    echo ERROR: Group ${LEGO_GROUP} could NOT be created;
+#ALEX#    exit 0;
+#ALEX#fi
+#ALEX#
+#ALEX#
+#ALEX## Add your username to the group
+#ALEX#if (  adduser ${USER} ${LEGO_GROUP} ); then
+#ALEX#    echo User ${USER} added to group ${LEGO_GROUP}
+#ALEX#else
+#ALEX#    echo ERROR: User ${USER} could NOT be added to group ${LEGO_GROUP}
+#ALEX#    exit 0;
+#ALEX#fi
 
 
 

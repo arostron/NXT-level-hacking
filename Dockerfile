@@ -10,3 +10,10 @@ WORKDIR /tmp
 RUN tar xf nbc-1.0.1.b35.tgz 
 RUN cp nxt/nbc /bin
 RUN chmod +x /bin/nbc
+
+# NXT usb setup
+COPY ./resources/setupNxtUSB.sh
+RUN addgroup legonxt
+RUN adduser root legonxt
+# this is real sketchy.... 
+RUN mkdir /etc/udev/rules.d 
