@@ -24,7 +24,8 @@ task main(){
 		OnFwd(OUT_A, 100); 
 	}
 	while (in == 0);
-
+	i=(2*i); 
+	in+=i;
 	// recived the backup distance... 
 	while(in > 0){
 		OnFwd(OUT_A, -100); 
