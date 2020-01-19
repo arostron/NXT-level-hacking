@@ -14,3 +14,45 @@ I'm looking to bring life back to these old, but still functional, NXT bricks!
 docker image build -t nxcdev .
 docker run -itd --rm --name devenv nxcdev 
 docker exec -it devenv /bin/sh
+#Divivde and conquer plan
+Goal: find where something is, and yell at it
+
+one robot is sent north (the master)
+other robot is sent south (the slave)
+
+when one robot finds something, it signals the other
+when the found signal is sent, the other robot changes direction to meet up with the other robot
+
+         master         slave
+        --------          |    
+          |               |    
+          |               |    
+          |               |    
+   send   | ----------->  |    
+    5s    |  ready to go? | if ready
+          |               | send every 1s
+          |  <----------  |    
+          |   yes ready   |    
+          |               |    
+          |               |    
+          |   dist to m   |    
+   finds  | ------------> |    
+          |               |    
+      stop|and            |drive back to 
+      wait|               |other robot
+          |               |    
+          | <-----------  |    
+          |  send met up  |    
+          |  signal       |    
+      play|               |play
+     sound|               |sound 
+          |               |    
+       end|            end|    
+          |               |   
+
+
+
+
+
+
+ 
