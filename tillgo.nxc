@@ -19,18 +19,18 @@ task main(){
 	{
 		TextOut(10,LCD_LINE1,"Slave Test");
 		ReceiveRemoteNumber(INBOX, true, in);
-		Wait(100);
+		Wait(50);
 		i++;	
-		OnFwd(OUT_A, 100); 
+		OnFwd(OUT_A, 50); 
 	}
 	while (in == 0);
-	i=(2*i); 
+	//i=(2*i); 
 	in+=i;
 	// recived the backup distance... 
 	while(in > 0){
-		OnFwd(OUT_A, -100); 
+		OnFwd(OUT_A, -50); 
 		in--;
-		Wait(100); 
+		Wait(50); 
 	}
 
 }

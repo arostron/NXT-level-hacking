@@ -23,9 +23,9 @@ task main(){
 			SendRemoteNumber(BT_CONN,OUTBOX,i );
 			done++; 
 		}else{
-			OnFwd(OUT_A, 100); 
+			OnFwd(OUT_A, 50); 
 		}
-		Wait(100);
+		Wait(50);
 		i++;
 	} 
 }
