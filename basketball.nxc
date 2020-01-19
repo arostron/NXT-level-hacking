@@ -1,0 +1,46 @@
+//MASTER
+#define BT_CONN 1
+#define INBOX 1
+#define OUTBOX 5
+#define MOTOR(p,s) RemoteSetOutputState(BT_CONN, p, s, \
+OUT_MODE_MOTORON+OUT_MODE_BRAKE+OUT_MODE_REGULATED, \ 
+OUT_REGMODE_SPEED, 0, OUT_RUNSTATE_RUNNING, 0) 
+
+sub BTCheck(int conn){
+	if (!BluetoothStatus(conn)==NO_ERR){
+	TextOut(5,LCD_LINE2,"Error"); Wait(1000);
+	Stop(true);
+	} 
+}
+
+task main(){
+	string in, out, iStr;
+	
+	int distance =0;
+	int target = 10;
+	int tol = 5;
+	SetSensorLowspeed(IN_4); 
+	
+	BTCheck(BT_CONN); //check slave connection
+	
+	distance = SensorUS(IN_4); // read ultrasonic sensor in to variable
+	
+	//while( !(distance > target + tol && distance < target - tol))
+	while(true)
+	{
+		distance = SensorUS(IN_4); // read ultrasonic sensor in to variable
+		int diff =  distance; 
+		
+		MOTOR(OUT_A, distance); 
+		//RemoteSetOUtputState(BT_CONN, OUT_A, diff, OUT_MODE_MOTORON+OUT_MODE_BRAKE+OUT_MODE_REGULATED,  OUT_REGMODE_SPEED, 0, OUT_RUNSTATE_RUNNING, 0); 	
+
+
+		TextOut(0, LCD_LINE2, NumToStr(diff)); 
+		
+	}
+
+
+	OnFwd(OUT_A, 50); 
+
+	 
+}
