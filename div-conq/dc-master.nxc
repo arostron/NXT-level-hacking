@@ -15,7 +15,7 @@ task main(){
 	int i = 0;
 	BTCheck(BT_CONN); //check slave connection
 	
-	wait(5000);
+	Wait(5000);
 	SendRemoteString(BT_CONN,OUTBOX,"LETSGO");
 	
 }
