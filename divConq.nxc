@@ -13,17 +13,22 @@ sub BTCheck(int conn){
 
 task main(){
 	BTCheck(BT_CONN);
-	RemotePlayTone(BT_CONN, 4000, 100);
-	until(BluetoothStatus(BT_CONN)==NO_ERR);
-	Wait(110);
+	int i = 0; 
+	SetSensor(IN_1,SENSOR_TOUCH);
 
-	RemotePlaySoundFile(BT_CONN, "! Click.rso", false);
-	until(BluetoothStatus(BT_CONN)==NO_ERR);
 
-	//Wait(500);
-	RemoteResetMotorPosition(BT_CONN,OUT_A,true);
-	until(BluetoothStatus(BT_CONN)==NO_ERR);
-	MOTOR(OUT_A,100);
-	Wait(1000);
-	MOTOR(OUT_A,0);
+	do {	
+		// move both the motors	
+		RemoteResetMotorPosition(BT_CONN,OUT_A,true);
+		until(BluetoothStatus(BT_CONN)==NO_ERR);
+		MOTOR(OUT_A,50);
+		OnFwd(OUT_A,50);
+			
+		Wait(1000);
+		MOTOR(OUT_A,0);
+		OnFwd(OUT_A,0);
+		i++; 
+
+	} while (SENSOR_1 != 1); // sensors NOT tripped... 
+	//handle the reversing...  
 }
